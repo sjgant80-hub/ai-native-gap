@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-Native or AI-Rented — the seven-layer audit</title>
+<meta name="description" content="The market sells AI-native as a rented chatbot bolt-on. Audit any stack against the seven layers where the difference lives — each sovereign layer backed by a running public receipt.">
+<style>
+  :root{
+    --bg:#0c0f13; --panel:#151a21; --panel2:#1b222c; --line:#2a3340;
+    --ink:#e9eef4; --dim:#8b98a7; --accent:#ffb454; --rent:#ff7a7a; --sov:#4fd28f;
+    --chip:#202834; --mono:ui-monospace,SFMono-Regular,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,Segoe UI,Roboto,sans-serif;padding:0 0 4rem}
+  .wrap{max-width:920px;margin:0 auto;padding:0 1.25rem}
+  header{padding:3rem 0 1.6rem;border-bottom:1px solid var(--line)}
+  h1{font-size:1.9rem}
+  h1 .r{color:var(--rent)} h1 .s{color:var(--sov)}
+  .sub{color:var(--dim);margin-top:.5rem;max-width:46rem}
+  h2{font-size:1.2rem;margin:2.4rem 0 1rem}
+  .thesis{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:1rem 1.2rem;margin:1.6rem 0;color:var(--dim)}
+  .thesis strong{color:var(--ink)}
+  .row{display:grid;grid-template-columns:110px 1fr 1fr auto;gap:.7rem;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem;margin:.45rem 0}
+  .row .name{font:700 .78rem var(--mono);letter-spacing:.04em;color:var(--accent);padding-top:.15rem}
+  .row .theirs{color:var(--rent);font-size:.85rem}
+  .row .ours{color:var(--sov);font-size:.85rem}
+  .row .ours a{color:var(--sov);text-decoration:underline dotted}
+  .row select{background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:.35rem .5rem;font:.85rem var(--mono)}
+  .colhead{display:grid;grid-template-columns:110px 1fr 1fr auto;gap:.7rem;padding:0 .9rem;font:600 .72rem var(--mono);color:var(--dim);letter-spacing:.06em}
+  .presets{display:flex;gap:.6rem;flex-wrap:wrap;margin:.8rem 0}
+  .presets button{background:var(--chip);color:var(--dim);border:1px solid var(--line);border-radius:6px;font-size:.82rem;font-weight:600;padding:.35rem .8rem;cursor:pointer}
+  button.go{background:var(--accent);color:#221604;border:0;border-radius:8px;padding:.65rem 1.4rem;font-weight:800;font-size:1rem;cursor:pointer;margin:.6rem 0}
+  button.go:hover,.presets button:hover{filter:brightness(1.12)}
+  .out{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+  .out .head{font:800 1.2rem var(--mono)}
+  .v-AI-NATIVE{color:var(--sov)} .v-sovereign-leaning{color:var(--sov)}
+  .v-hybrid-stack{color:var(--accent)} .v-AI-RENTED{color:var(--rent)}
+  .bar{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:999px;overflow:hidden;margin:.6rem 0}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--rent),var(--accent),var(--sov));transition:width .5s}
+  .lists{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.8rem;margin-top:.8rem}
+  .lists div{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:.6rem .8rem;font:.82rem var(--mono)}
+  .t-rented{color:var(--rent)} .t-hybrid{color:var(--accent)} .t-sov{color:var(--sov)}
+  .lists ul{list-style:none;margin-top:.3rem;color:var(--dim)}
+  .notes{margin-top:.8rem;color:var(--accent);font-size:.88rem}
+  .notes li{margin:.3rem 0 .3rem 1.1rem}
+  footer{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--line);color:var(--dim);font-size:.85rem}
+  footer a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1><span class="s">AI-Native</span> or <span class="r">AI-Rented</span> — the seven-layer audit</h1>
+  <p class="sub">The market sells "AI-native" as a chatbot bolted onto a knowledge base, routed to a rented model hub, supervised to catch its mistakes. That is AI-<em>rented</em>. AI-native means the intelligence is <strong>yours</strong> — sovereign, local, self-refusing. Audit any stack below: seven layers, each sovereign answer backed by a running public receipt.</p>
+</header>
+
+<div class="thesis">
+  <strong>The rule:</strong> you do not become AI-native by adding AI. You are AI-native when the intelligence is yours, works in hours it owns, and refuses its own garbage without you watching. Every "ours" cell below links the receipt — a live public repo, not a claim.
+</div>
+
+<h2>Audit your stack</h2>
+<div class="presets">
+  <button id="p-market">preset: the market's "AI-native"</button>
+  <button id="p-sov">preset: the sovereign stack</button>
+  <button id="p-mid">preset: honest mid-migration</button>
+</div>
+<div class="colhead"><span>layer</span><span>AI-RENTED looks like</span><span>AI-NATIVE looks like (receipt)</span><span>yours?</span></div>
+<div id="form"></div>
+<button class="go" id="go">audit it</button>
+
+<div class="out" id="out" hidden>
+  <div class="head" id="head"></div>
+  <div class="bar"><i id="fill"></i></div>
+  <div id="headline"></div>
+  <div class="lists">
+    <div><span class="t-rented">RENTED — take these</span><ul id="l-rented"></ul></div>
+    <div><span class="t-hybrid">HYBRID — finish these</span><ul id="l-hybrid"></ul></div>
+    <div><span class="t-sov">SOVEREIGN — yours</span><ul id="l-sovereign"></ul></div>
+  </div>
+  <ul class="notes" id="notes"></ul>
+</div>
+
+<h2>Why the receipts matter</h2>
+<div class="thesis">
+  <p><strong>Every sovereign cell above is running, in public.</strong> The dreaming memory reorganises overnight and never rewrites a memory. The harness caught one of our own agents misremembering its own code and refused to publish it — the refusal is documented in the README of the repo it later shipped honestly. The audit runs both ways: the system flagged a real vulnerability in our own gate code, twice, and was right. This page does not verify <em>your</em> stack — it scores the architecture stance you claim, and tells you which layer to take next.</p>
+</div>
+
+<footer>
+  <p>MIT · <a href="https://github.com/sjgant80-hub/ai-native-gap">source &amp; mutation gate</a> — the scorer on this page is the gated <code>kernel.mjs</code> verbatim, injected by <code>make-page.mjs</code> and diffed in CI. Pure client-side; nothing you enter leaves this page.</p>
+</footer>
+</div>
+
+<script type="module">
+// ⟦KERNEL-BEGIN⟧ generated from kernel.mjs by make-page.mjs — do not edit here
+// ai-native-gap · the seven-layer audit
+//
+// "AI-native" as the market sells it is AI-RENTED: a chatbot bolted onto a knowledge base,
+// routed to a rented model hub, supervised to catch bad output. AI-native means something
+// stricter: the intelligence is NATIVE, SOVEREIGN, and YOURS — and it contains itself.
+// This kernel scores any stack against the seven layers where that difference lives.
+// The RENTED layers become the roadmap: what to make sovereign next, most critical first.
+//
+// Pure and total — garbage in returns { ok:false, why } and never throws.
+
+const LAYERS = Object.freeze([
+  { layer: 'GATEWAY',    rented: 'one rented API/MCP door into your systems — a dependency', sovereign: 'your own admission wall: identity, capability, replay-guard, budget — the door is yours', receipt: 'chorus' },
+  { layer: 'BRAIN',      rented: 'a static knowledge base the AI reads — a filing cabinet', sovereign: 'dreaming memory: reorganises itself overnight, wakes with better recall, never rewrites a memory', receipt: 'the-dreamer' },
+  { layer: 'CONTEXT',    rented: 'raw feeds wired in and taken as true because someone wrote them', sovereign: 'witnessed-not-believed: what enters is what a gate confirmed happened', receipt: 'seam-check' },
+  { layer: 'HARNESS',    rented: 'supervision to catch bad output after it happens', sovereign: 'structural self-refusal: the gate the system cannot sweet-talk refuses its slop before shipping', receipt: 'witness-kit' },
+  { layer: 'ONBOARDING', rented: 'one-way: the AI learns from the team', sovereign: 'bidirectional: the system audits its overseer back and makes the overseer safer', receipt: 'ui-gate' },
+  { layer: 'ROUTING',    rented: 'work routed to rented model hubs — the mind is a tenant', sovereign: 'own models on own metal; the cloud only ever by a named, budgeted, ledgered grant', receipt: 'fallrelay' },
+  { layer: 'AGENTS',     rented: 'supervised tools built on top', sovereign: 'sovereign agents that ship from hours they own and contain themselves — with the receipt', receipt: 'pixelwhisperer' },
+]);
+
+// When more than one layer is rented, which do you make sovereign FIRST? A pinned order:
+// own the metal (everything else is rented at the root without it), then the self-refusing
+// harness (or you are the babysitter forever), then the mind itself, then the doors.
+const CRITICALITY = Object.freeze([
+  'ROUTING', 'HARNESS', 'BRAIN', 'GATEWAY', 'CONTEXT', 'ONBOARDING', 'AGENTS',
+]);
+
+const STANCES = Object.freeze(['rented', 'hybrid', 'sovereign']);
+const NAMES = LAYERS.map((l) => l.layer);
+
+/**
+ * auditStack(answers) — answers maps EVERY layer to 'rented' | 'hybrid' | 'sovereign'.
+ * All seven are required: an unanswered layer is not a rented layer, it is an unasked
+ * question. sovereignty = (sovereign + 0.5·hybrid) / 7 as a percentage; the verdict names
+ * the species, the headline names the next layer to take, and the lists are the roadmap.
+ */
+function auditStack(answers) {
+  if (typeof answers !== 'object') return { ok: false, why: 'auditStack reads an answers object: { "<LAYER>": "rented"|"hybrid"|"sovereign" }' };
+  if (answers === null) return { ok: false, why: 'auditStack reads an answers object: { "<LAYER>": "rented"|"hybrid"|"sovereign" }' };
+  if (Array.isArray(answers)) return { ok: false, why: 'auditStack reads an answers object: { "<LAYER>": "rented"|"hybrid"|"sovereign" }' };
+  for (const k of Object.keys(answers)) {
+    if (!NAMES.includes(k)) return { ok: false, why: 'unknown layer "' + k + '" — the seven are fixed' };
+  }
+  for (const l of NAMES) {
+    if (answers[l] === undefined) return { ok: false, why: l + ' is unanswered — an unanswered layer is not a rented layer, it is an unasked question; answer all seven' };
+    if (!STANCES.includes(answers[l])) return { ok: false, why: 'answer for ' + l + ' must be rented|hybrid|sovereign, got "' + String(answers[l]) + '"' };
+  }
+  const sovereign = NAMES.filter((l) => answers[l] === 'sovereign');
+  const hybrid = NAMES.filter((l) => answers[l] === 'hybrid');
+  const rented = NAMES.filter((l) => answers[l] === 'rented');
+  const sovereignty = Math.round(((sovereign.length + 0.5 * hybrid.length) / 7) * 100);
+
+  let headline;
+  if (rented.length > 0) {
+    const next = CRITICALITY.find((l) => rented.includes(l));
+    headline = 'take ' + next + ' sovereign next — it is the most critical rented layer';
+  } else if (hybrid.length > 0) {
+    const next = CRITICALITY.find((l) => hybrid.includes(l));
+    headline = 'finish ' + next + ' next — nothing is rented, but it is the most critical hybrid layer';
+  } else {
+    headline = 'all seven layers are yours — the intelligence is native';
+  }
+
+  const notes = [];
+  if (rented.includes('ROUTING')) notes.push('rented ROUTING: the mind itself is a tenant — if the hub goes dark, the company stops thinking');
+  if (rented.includes('HARNESS')) notes.push('rented HARNESS: supervision-to-catch is a payroll for finding what the system should refuse itself');
+  if (rented.includes('BRAIN')) notes.push('rented BRAIN: a filing cabinet does not get smarter overnight — it just gets bigger');
+  if (rented.length === 7) notes.push('the full-tenant shape: every layer rented — this is AI bolted on, with your logo on the door');
+
+  // Verdict thresholds sit ON the score lattice (multiples of round(k·100/14)): 100, 71, 36.
+  let verdict;
+  if (sovereignty === 100) verdict = 'AI-NATIVE';
+  else if (sovereignty >= 71) verdict = 'sovereign-leaning';
+  else if (sovereignty >= 36) verdict = 'hybrid-stack';
+  else verdict = 'AI-RENTED';
+
+  return { ok: true, sovereignty, verdict, headline, rented, hybrid, sovereign, notes };
+}
+// ⟦KERNEL-END⟧
+
+const $ = (id) => document.getElementById(id);
+const REPO = (n) => 'https://github.com/sjgant80-hub/' + n;
+const form = $('form');
+for (const l of LAYERS) {
+  const row = document.createElement('div'); row.className = 'row';
+  const name = document.createElement('div'); name.className = 'name'; name.textContent = l.layer;
+  const theirs = document.createElement('div'); theirs.className = 'theirs'; theirs.textContent = l.rented;
+  const ours = document.createElement('div'); ours.className = 'ours';
+  ours.append(l.sovereign + ' ');
+  const a = document.createElement('a'); a.href = REPO(l.receipt); a.textContent = '[' + l.receipt + ']'; a.rel = 'noopener';
+  ours.append(a);
+  const s = document.createElement('select'); s.id = 'ly-' + l.layer;
+  for (const o of ['rented', 'hybrid', 'sovereign']) { const e = document.createElement('option'); e.value = o; e.textContent = o; s.append(e); }
+  s.value = 'rented';
+  row.append(name, theirs, ours, s);
+  form.append(row);
+}
+const setAll = (fn) => { for (const l of LAYERS) $('ly-' + l.layer).value = fn(l.layer); };
+$('p-market').addEventListener('click', () => setAll(() => 'rented'));
+$('p-sov').addEventListener('click', () => setAll(() => 'sovereign'));
+$('p-mid').addEventListener('click', () => setAll((l) => (l === 'ROUTING' || l === 'HARNESS') ? 'sovereign' : (l === 'BRAIN' ? 'hybrid' : 'rented')));
+
+$('go').addEventListener('click', () => {
+  const answers = {};
+  for (const l of LAYERS) answers[l.layer] = $('ly-' + l.layer).value;
+  const r = auditStack(answers);
+  $('out').hidden = false;
+  if (!r.ok) { $('head').textContent = 'refused — ' + r.why; $('fill').style.width = '0'; return; }
+  $('head').innerHTML = 'sovereignty <span class="v-' + r.verdict + '">' + r.sovereignty + '%</span> · <span class="v-' + r.verdict + '">' + r.verdict + '</span>';
+  $('fill').style.width = r.sovereignty + '%';
+  $('headline').textContent = '→ ' + r.headline;
+  for (const [k, id] of [['rented', 'l-rented'], ['hybrid', 'l-hybrid'], ['sovereign', 'l-sovereign']]) {
+    const ul = $(id); ul.textContent = '';
+    for (const p of r[k]) { const li = document.createElement('li'); li.textContent = p; ul.append(li); }
+    if (r[k].length === 0) { const li = document.createElement('li'); li.textContent = '—'; ul.append(li); }
+  }
+  const notes = $('notes'); notes.textContent = '';
+  for (const n of r.notes) { const li = document.createElement('li'); li.textContent = n; notes.append(li); }
+});
+</script>
+</body>
+</html>
