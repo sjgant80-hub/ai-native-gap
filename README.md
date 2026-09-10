@@ -15,7 +15,7 @@ receipt**, not a claim.
 | layer | AI-RENTED | AI-NATIVE | receipt |
 |---|---|---|---|
 | GATEWAY | one rented API door — a dependency | your own admission wall (identity, capability, budget) | [chorus](https://github.com/sjgant80-hub/chorus) |
-| BRAIN | a static knowledge base — a filing cabinet | dreaming memory: reorganises overnight, never rewrites | [the-dreamer](https://github.com/sjgant80-hub/the-dreamer) |
+| BRAIN | a static knowledge base — a filing cabinet | dreaming memory: reorganises overnight, never rewrites (the dreaming company-brain design is Gary Floyd's, of Nexus) | [the-dreamer](https://github.com/sjgant80-hub/the-dreamer) |
 | CONTEXT | raw feeds taken as true | witnessed-not-believed admission | [seam-check](https://github.com/sjgant80-hub/seam-check) |
 | HARNESS | supervision to catch bad output after | structural self-refusal before shipping | [witness-kit](https://github.com/sjgant80-hub/witness-kit) |
 | ONBOARDING | one-way: the AI learns from the team | bidirectional: the system audits its overseer back | [ui-gate](https://github.com/sjgant80-hub/ui-gate) |
